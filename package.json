@@ -1,18 +1,22 @@
 {
   "name": "harbor-robotics-site",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "6.0.2",
-    "vite": "8.0.13",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
-    "lucide-react": "1.16.0"
-  }
+    "@vitejs/plugin-react": "4.3.3",
+    "vite": "5.4.11",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "lucide-react": "0.468.0"
+  },
+  "devDependencies": {}
 }
