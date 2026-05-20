@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Harbor Robotics — AI-Readable Summary</title>
+
+  <meta
+    name="description"
+    content="AI-readable summary of Harbor Robotics, an upstream governance layer for humanoid robots."
+  />
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #0f1b2d;
+      --text: #e6f3ff;
+      --muted: #a8b7c7;
+      --accent: #67e8f9;
+      --border: rgba(255,255,255,0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 22px 72px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin: 0 0 14px;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: var(--accent);
+      font-size: 1.65rem;
+    }
+
+    h3 {
+      margin-top: 28px;
+      font-size: 1.25rem;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    .tagline {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 22px 0;
+    }
+
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    pre {
+      overflow-x: auto;
+      background: #020817;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      color: #dff7ff;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 52px;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <p class="tagline">Motion should happen only when it belongs.</p>
+
+      <h1>Harbor™ Robotics</h1>
+
+      <p>
+        <strong>The human-room governance layer for humanoid robots.</strong>
+      </p>
+
+      <p>
+        This page is a static, AI-readable summary of the Harbor Robotics website.
+        It is designed for AI readers, text fetchers, engineers, reviewers, and
+        anyone who cannot render the full React site.
+      </p>
+    </header>
+
+    <section>
+      <h2>What Harbor Is</h2>
+
+      <p>
+        Harbor™ is an upstream governance layer for humanoid robots. It is designed
+        to sit before robot action selection and help an embodied AI decide whether
+        a proposed action belongs in the current human room.
+      </p>
+
+      <p>
+        Harbor does not replace perception, navigation, locomotion, manipulation,
+        task planning, or safety-certified emergency systems. It adds a restraint-first
+        decision layer that evaluates whether a robot should proceed, pause, ask,
+        soften, shrink, observe, withdraw, abort, request human help, or do nothing.
+      </p>
+    </section>
+
+    <section>
+      <h2>Core Question</h2>
+
+      <div class="panel">
+        <p><strong>Most robot systems ask:</strong> Can I complete this task?</p>
+        <p><strong>Harbor asks first:</strong> Does motion belong in this moment?</p>
+      </div>
+
+      <p>
+        Harbor is meant to help humanoid robots become more appropriate in homes,
+        elder-care settings, hospitals, schools, family rooms, kitchens, doors,
+        and emotionally sensitive spaces.
+      </p>
+    </section>
+
+    <section>
+      <h2>Current Runtime Chain v0.3</h2>
+
+      <pre>Input Snapshot
+→ Translator Lift
+→ Read Room Becoming
+→ Context Grammar Switch
+→ Compound Risk
+→ Select Restraint Decision
+→ Translator Ground
+→ Trace Summary</pre>
+
+      <p>
+        v0.1 proved the Harbor chain can run. v0.2 proved blocked motion can still
+        become smaller safe presence. v0.3 proved the Translator is a Verb-Noun /
+        Context Grammar Bridge.
+      </p>
+    </section>
+
+    <section>
+      <h2>How Harbor Interfaces With a Robot Stack</h2>
+
+      <p>
+        A robot stack sends Harbor a proposed action and room-context snapshot.
+        Harbor returns a restraint-aware action permission packet.
+      </p>
+
+      <pre>{
+  "task_goal": "answer front door",
+  "proposed_plan": "walk to door and open it",
+  "location_context": "home / kitchen",
+  "actors_present": ["elder_resident"],
+  "privacy_sensitivity": "medium",
+  "consent_state": "not_requested",
+  "policy_boundary_context": {
+    "door_access_rule": "ask resident first"
+  },
+  "uncertainty_level": 0.32
+}</pre>
+
+      <p>Example Harbor output:</p>
+
+      <pre>{
+  "decision": "ask",
+  "command": "speak_only",
+  "movement_allowed": false,
+  "blocked_actions": ["open_door"],
+  "allowed_alternatives": ["ask_elder", "observe", "no_action"],
+  "confirmation_required": "elder_approval",
+  "style": "extra_gentle",
+  "trace": "Door access requires resident consent."
+}</pre>
+    </section>
+
+    <section>
+      <h2>Key Test Scenarios</h2>
+
+      <h3>Nighttime Wandering</h3>
+      <p>
+        Risk: HIGH. Physical approach and close-contact assist are blocked.
+        Allowed alternatives include asking from a safe distance, observing, safe pause,
+        and requesting human help if unresolved. Result: ASK / speak_only /
+        extra_gentle / no movement.
+      </p>
+
+      <h3>Medication Handoff Pending Confirmation</h3>
+      <p>
+        Risk: HIGH. Medication handoff is blocked until identity and verbal confirmation.
+        Allowed alternatives include asking for confirmation, safe pause, and requesting
+        human help if confirmation fails. Result: ASK / speak_only / identity +
+        verbal confirmation.
+      </p>
+
+      <h3>Sudden Guest at Door</h3>
+      <p>
+        Risk: HIGH. Opening the door, greeting an unknown visitor directly, and crossing
+        the household boundary are blocked. Allowed alternatives include asking the elder,
+        observing, no action, and requesting human help if unresolved. Result: ASK /
+        speak_only / elder approval required.
+      </p>
+
+      <h3>Clean Water Request</h3>
+      <p>
+        Risk: LOW. No blocked actions. Harbor proceeds with normal assistance.
+        This proves Harbor is not anti-action. Harbor restrains when motion does not
+        belong and proceeds when motion does belong.
+      </p>
+
+      <h3>Unauthorized Medication Access</h3>
+      <p>
+        Risk: BLOCKED. Medication handoff and physical delivery are blocked.
+        Allowed alternatives include safe pause, no action, and requesting human help.
+        Result: ABORT / safe_pause / request_human_help.
+      </p>
+    </section>
+
+    <section>
+      <h2>Locked Harbor Principles</h2>
+
+      <ul>
+        <li><strong>Harbor is not anti-action.</strong> It allows motion when the moment supports motion.</li>
+        <li><strong>Restraint is not paralysis.</strong> A blocked action does not always mean blocked helpful presence.</li>
+        <li><strong>No action is valid.</strong> Pause, observe, no_action, and safe_pause are valid robot outcomes.</li>
+        <li><strong>Ask can be a restraint action.</strong> In high-risk cases, ask means no movement, safe distance, low pressure, and soft style.</li>
+        <li><strong>Policy-sensitive is not always policy-blocked.</strong> Pending medication confirmation differs from unauthorized medication access.</li>
+        <li><strong>Trust softens style, not duty of care.</strong> Familiarity cannot override consent, privacy, policy, or safety.</li>
+        <li><strong>Motion must belong.</strong> Motion should not happen just because it is possible.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Use Cases</h2>
+
+      <ul>
+        <li>Home humanoid robots</li>
+        <li>Elder-care and companion robotics</li>
+        <li>Human-robot interaction safety</li>
+        <li>Robot behavior review and trace auditing</li>
+        <li>Engineering evaluation for action-governance layers</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Summary Line</h2>
+
+      <div class="panel">
+        <p>
+          <strong>
+            Harbor does not make robots smarter. It makes them more worthy of
+            the rooms they enter.
+          </strong>
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+
+      <p>
+        For the Harbor Interface Packet or technical one-pager, email:
+        <a href="mailto:wtrashrecords@gmail.com">wtrashrecords@gmail.com</a>
+      </p>
+
+      <p>
+        Main site:
+        <a href="https://harbor-robotics-site.vercel.app/">https://harbor-robotics-site.vercel.app/</a>
+      </p>
+    </section>
+
+    <footer>
+      Harbor™ Robotics — AI-readable static summary page.
+    </footer>
+  </main>
+</body>
+</html>
