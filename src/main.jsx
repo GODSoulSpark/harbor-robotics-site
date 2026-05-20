@@ -335,6 +335,9 @@ function Principles() {
 }
 
 function Contact() {
+  const interfacePacketUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=wtrashrecords@gmail.com&su=Harbor%20Robotics%20Interface%20Packet%20Request&body=Hi%20Donnie%2C%0A%0AI%20would%20like%20to%20request%20the%20Harbor%20Robotics%20Interface%20Packet.%0A%0AThank%20you.';
+  const technicalOnePagerUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=wtrashrecords@gmail.com&su=Harbor%20Robotics%20Technical%20One-Pager%20Request&body=Hi%20Donnie%2C%0A%0AI%20would%20like%20to%20request%20the%20Harbor%20Robotics%20technical%20one-pager.%0A%0AThank%20you.';
+
   return (
     <section id="contact" className="section contact">
       <div className="container narrow center">
@@ -344,9 +347,19 @@ function Contact() {
           Request the Harbor Interface Packet: engineer brief, schema, reference gate, test scenarios, and trace examples for humanoid robotics, elder-care robotics, or human-robot interaction review.
         </p>
         <div className="hero-actions center-actions">
-          <a className="primary" href="mailto:wtrashrecords@gmail.com?subject=Harbor%20Robotics%20Interface%20Packet%20Request">Request Harbor Interface Packet <ArrowRight size={18} /></a>
-          <a className="secondary" href="mailto:wtrashrecords@gmail.com?subject=Harbor%20Robotics%20Technical%20One-Pager">Request Technical One-Pager</a>
+          <a className="primary" href={interfacePacketUrl} target="_blank" rel="noreferrer">
+            Request Harbor Interface Packet <ArrowRight size={18} />
+          </a>
+          <a className="secondary" href={technicalOnePagerUrl} target="_blank" rel="noreferrer">
+            Request Technical One-Pager
+          </a>
         </div>
+        <p style={{ marginTop: '1.5rem', color: '#cbd5e1' }}>
+          Or email directly:{' '}
+          <a href="mailto:wtrashrecords@gmail.com" style={{ color: '#67e8f9', fontWeight: 700 }}>
+            wtrashrecords@gmail.com
+          </a>
+        </p>
       </div>
     </section>
   );
